@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spark Services</title>
+
+<style>
+
+body{
+background:#0d0d0d;
+color:#e6e6e6;
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+}
+
+header{
+text-align:center;
+padding:60px 20px;
+background:#111;
+border-bottom:2px solid orange;
+}
+
+.logo{
+width:220px;
+margin-bottom:20px;
+}
+
+header h1{
+margin:0;
+font-size:42px;
+color:orange;
+}
+
+header p{
+color:#aaa;
+margin-top:8px;
+}
+
+nav{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:15px;
+background:#141414;
+border-bottom:1px solid #222;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:orange;
+}
+
+section{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
+}
+
+h2{
+text-align:center;
+color:orange;
+margin-bottom:40px;
+}
+
+h3{
+color:orange;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+}
+
+.card{
+background:#1a1a1a;
+border:1px solid #333;
+border-radius:10px;
+padding:20px;
+transition:0.2s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:orange;
+}
+
+.price{
+color:#00ff9c;
+font-size:22px;
+margin-top:10px;
+}
+
+.stock{
+color:#aaa;
+font-size:14px;
+margin-top:5px;
+}
+
+button{
+margin-top:10px;
+width:100%;
+padding:10px;
+background:orange;
+border:none;
+font-weight:bold;
+cursor:pointer;
+border-radius:6px;
+}
+
+button:hover{
+background:#ff9f1a;
+}
+
+.material-board{
+background:#1a1a1a;
+border-radius:10px;
+padding:25px;
+max-width:500px;
+margin:auto;
+}
+
+.material-board li{
+margin:10px 0;
+}
+
+.order{
+background:#1a1a1a;
+padding:25px;
+border-radius:10px;
+max-width:500px;
+margin:auto;
+}
+
+input, select{
+width:100%;
+padding:10px;
+margin-bottom:10px;
+background:#0d0d0d;
+border:1px solid #333;
+color:white;
+border-radius:6px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#000;
+color:#777;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<img src="spark-logo.png.png" class="logo" alt="Spark Services Logo">
+
+<h1>Spark Services</h1>
+<p>Premium Weapon Supply & Material Trading</p>
+
+</header>
+
+<nav>
+<a href="#packages">Packages</a>
+<a href="#catalogue">Catalogue</a>
+<a href="#materials">Materials</a>
+<a href="#order">Order</a>
+</nav>
+
+<section id="packages">
+
+<h2>Popular Packages</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Street Starter</h3>
+<ul>
+<li>Makarov PM</li>
+<li>P250</li>
+<li>Pistol Ammo</li>
+</ul>
+<div class="price">$12,000</div>
+</div>
+
+<div class="card">
+<h3>Gang Package</h3>
+<ul>
+<li>2 AK-47</li>
+<li>2 Pistols</li>
+<li>2 Rifle Ammo</li>
+</ul>
+<div class="price">$48,000</div>
+</div>
+
+<div class="card">
+<h3>War Package</h3>
+<ul>
+<li>4 AK-47</li>
+<li>2 Desert Eagles</li>
+<li>5 Rifle Ammo</li>
+</ul>
+<div class="price">$110,000</div>
+</div>
+
+<div class="card">
+<h3>Heavy Assault</h3>
+<ul>
+<li>2 M4A4</li>
+<li>2 AK-47</li>
+<li>4 Rifle Ammo</li>
+</ul>
+<div class="price">$120,000</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="catalogue">
+
+<h2>Marketplace Catalogue</h2>
+
+<h3>Rifles</h3>
+
+<div class="grid">
+
+<div class="card">
+<h3>AK-47</h3>
+<div class="stock">Stock: 18</div>
+<div class="price">$25,000</div>
+<button>Request Purchase</button>
+</div>
+
+<div class="card">
+<h3>M4A4</h3>
+<div class="stock">Stock: 10</div>
+<div class="price">$31,000</div>
+<button>Request Purchase</button>
+</div>
+
+<div class="card">
+<h3>SCAR-17</h3>
+<div class="stock">Stock: 9</div>
+<div class="price">$21,000</div>
+<button>Request Purchase</button>
+</div>
+
+</div>
+
+<h3 style="margin-top:50px;">Pistols</h3>
+
+<div class="grid">
+
+<div class="card">
+<h3>Desert Eagle</h3>
+<div class="stock">Stock: 24</div>
+<div class="price">$12,000</div>
+<button>Request Purchase</button>
+</div>
+
+<div class="card">
+<h3>P250</h3>
+<div class="stock">Stock: 30</div>
+<div class="price">$12,000</div>
+<button>Request Purchase</button>
+</div>
+
+<div class="card">
+<h3>Makarov PM</h3>
+<div class="stock">Stock: 40</div>
+<div class="price">$10,000</div>
+<button>Request Purchase</button>
+</div>
+
+</div>
+
+<h3 style="margin-top:50px;">Snipers & Shotguns</h3>
+
+<div class="grid">
+
+<div class="card">
+<h3>KAR-98k</h3>
+<div class="stock">Stock: 12</div>
+<div class="price">$20,000</div>
+<button>Request Purchase</button>
+</div>
+
+<div class="card">
+<h3>Remington 870</h3>
+<div class="stock">Stock: 14</div>
+<div class="price">$25,000</div>
+<button>Request Purchase</button>
+</div>
+
+</div>
+
+<h3 style="margin-top:50px;">Ammunition</h3>
+
+<div class="grid">
+
+<div class="card">
+<h3>Rifle Ammo</h3>
+<div class="stock">Stock: 100</div>
+<div class="price">$15,000</div>
+<button>Request Purchase</button>
+</div>
+
+<div class="card">
+<h3>Pistol Ammo</h3>
+<div class="stock">Stock: 150</div>
+<div class="price">$7,000</div>
+<button>Request Purchase</button>
+</div>
+
+<div class="card">
+<h3>Shotgun Ammo</h3>
+<div class="stock">Stock: 90</div>
+<div class="price">$10,000</div>
+<button>Request Purchase</button>
+</div>
+
+</div>
+
+</section>
+
+<section id="materials">
+
+<h2>Materials We Buy</h2>
+
+<div class="material-board">
+
+<ul>
+<li>Gold — $500</li>
+<li>Iron — $500</li>
+<li>Bronze — $400</li>
+<li>Natural Rubber — $400</li>
+<li>Fabric — $300</li>
+<li>Leather — $250</li>
+</ul>
+
+<p style="color:#888;">Bring materials to Spark Services for quick payment.</p>
+
+</div>
+
+</section>
+
+<section id="order">
+
+<h2>Submit Order Request</h2>
+
+<div class="order">
+
+<input type="text" placeholder="Name / Gang">
+
+<select>
+<option>AK-47</option>
+<option>M4A4</option>
+<option>Desert Eagle</option>
+<option>SCAR-17</option>
+<option>KAR-98k</option>
+<option>P250</option>
+<option>Makarov PM</option>
+<option>Remington 870</option>
+</select>
+
+<input type="number" placeholder="Quantity">
+
+<input type="text" placeholder="Contact Details">
+
+<button>Submit Order</button>
+
+</div>
+
+</section>
+
+<footer>
+
+Spark Services ©
+Contact Nick In-Game for Orders
+
+</footer>
+
+</body>
+</html>
