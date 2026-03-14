@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,386 +7,180 @@
 <style>
 
 body{
-background:#0d0d0d;
-color:#e6e6e6;
-font-family:Arial, Helvetica, sans-serif;
+font-family: Arial, sans-serif;
+background:#0f172a;
+color:white;
 margin:0;
 }
 
 header{
+background:#020617;
+padding:20px;
 text-align:center;
-padding:60px 20px;
-background:#111;
-border-bottom:2px solid orange;
+border-bottom:2px solid #facc15;
 }
 
-.logo{
-width:220px;
-margin-bottom:20px;
+header img{
+height:70px;
 }
 
-header h1{
-margin:0;
-font-size:42px;
-color:orange;
-}
-
-header p{
-color:#aaa;
-margin-top:8px;
-}
-
-nav{
-display:flex;
-justify-content:center;
-gap:30px;
-padding:15px;
-background:#141414;
-border-bottom:1px solid #222;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
-
-nav a:hover{
-color:orange;
+h1{
+margin:10px;
+color:#facc15;
 }
 
 section{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
+padding:40px;
 }
 
 h2{
-text-align:center;
-color:orange;
-margin-bottom:40px;
-}
-
-h3{
-color:orange;
+border-bottom:2px solid #facc15;
+padding-bottom:10px;
+margin-bottom:30px;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:25px;
 }
 
 .card{
-background:#1a1a1a;
-border:1px solid #333;
-border-radius:10px;
+background:#1e293b;
 padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.5);
 transition:0.2s;
 }
 
 .card:hover{
 transform:translateY(-5px);
-border-color:orange;
+}
+
+.item{
+font-size:20px;
+font-weight:bold;
 }
 
 .price{
-color:#00ff9c;
-font-size:22px;
-margin-top:10px;
-}
-
-.stock{
-color:#aaa;
-font-size:14px;
-margin-top:5px;
-}
-
-button{
-margin-top:10px;
-width:100%;
-padding:10px;
-background:orange;
-border:none;
-font-weight:bold;
-cursor:pointer;
-border-radius:6px;
-}
-
-button:hover{
-background:#ff9f1a;
-}
-
-.material-board{
-background:#1a1a1a;
-border-radius:10px;
-padding:25px;
-max-width:500px;
-margin:auto;
-}
-
-.material-board li{
-margin:10px 0;
-}
-
-.order{
-background:#1a1a1a;
-padding:25px;
-border-radius:10px;
-max-width:500px;
-margin:auto;
-}
-
-input, select{
-width:100%;
-padding:10px;
-margin-bottom:10px;
-background:#0d0d0d;
-border:1px solid #333;
-color:white;
-border-radius:6px;
+color:#facc15;
+font-size:18px;
+margin-top:8px;
 }
 
 footer{
 text-align:center;
 padding:30px;
-background:#000;
-color:#777;
+background:#020617;
+margin-top:40px;
+border-top:2px solid #facc15;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
 
-<img src="spark-logo.png.png" class="logo" alt="Spark Services Logo">
+<img src="spark-logo.png.png">
 
 <h1>Spark Services</h1>
-<p>Premium Weapon Supply & Material Trading</p>
+
+<p>Premium Equipment & Ammunition Supplier</p>
 
 </header>
 
-<nav>
-<a href="#packages">Packages</a>
-<a href="#catalogue">Catalogue</a>
-<a href="#materials">Materials</a>
-<a href="#order">Order</a>
-</nav>
+<section>
 
-<section id="packages">
-
-<h2>Popular Packages</h2>
+<h2>Weapons</h2>
 
 <div class="grid">
 
 <div class="card">
-<h3>Street Starter</h3>
-<ul>
-<li>Makarov PM</li>
-<li>P250</li>
-<li>Pistol Ammo</li>
-</ul>
-<div class="price">$12,000</div>
+<div class="item">Glock</div>
+<div class="price">$16,000</div>
 </div>
 
 <div class="card">
-<h3>Gang Package</h3>
-<ul>
-<li>2 AK-47</li>
-<li>2 Pistols</li>
-<li>2 Rifle Ammo</li>
-</ul>
-<div class="price">$48,000</div>
-</div>
-
-<div class="card">
-<h3>War Package</h3>
-<ul>
-<li>4 AK-47</li>
-<li>2 Desert Eagles</li>
-<li>5 Rifle Ammo</li>
-</ul>
-<div class="price">$110,000</div>
-</div>
-
-<div class="card">
-<h3>Heavy Assault</h3>
-<ul>
-<li>2 M4A4</li>
-<li>2 AK-47</li>
-<li>4 Rifle Ammo</li>
-</ul>
-<div class="price">$120,000</div>
-</div>
-
-</div>
-
-</section>
-
-<section id="catalogue">
-
-<h2>Marketplace Catalogue</h2>
-
-<h3>Rifles</h3>
-
-<div class="grid">
-
-<div class="card">
-<h3>AK-47</h3>
-<div class="stock">Stock: 18</div>
-<div class="price">$25,000</div>
-<button>Request Purchase</button>
-</div>
-
-<div class="card">
-<h3>M4A4</h3>
-<div class="stock">Stock: 10</div>
+<div class="item">M4A4</div>
 <div class="price">$31,000</div>
-<button>Request Purchase</button>
 </div>
 
 <div class="card">
-<h3>SCAR-17</h3>
-<div class="stock">Stock: 9</div>
-<div class="price">$21,000</div>
-<button>Request Purchase</button>
-</div>
-
-</div>
-
-<h3 style="margin-top:50px;">Pistols</h3>
-
-<div class="grid">
-
-<div class="card">
-<h3>Desert Eagle</h3>
-<div class="stock">Stock: 24</div>
+<div class="item">Desert Eagle</div>
 <div class="price">$12,000</div>
-<button>Request Purchase</button>
 </div>
 
 <div class="card">
-<h3>P250</h3>
-<div class="stock">Stock: 30</div>
-<div class="price">$12,000</div>
-<button>Request Purchase</button>
-</div>
-
-<div class="card">
-<h3>Makarov PM</h3>
-<div class="stock">Stock: 40</div>
-<div class="price">$10,000</div>
-<button>Request Purchase</button>
-</div>
-
-</div>
-
-<h3 style="margin-top:50px;">Snipers & Shotguns</h3>
-
-<div class="grid">
-
-<div class="card">
-<h3>KAR-98k</h3>
-<div class="stock">Stock: 12</div>
-<div class="price">$20,000</div>
-<button>Request Purchase</button>
-</div>
-
-<div class="card">
-<h3>Remington 870</h3>
-<div class="stock">Stock: 14</div>
+<div class="item">AK-47</div>
 <div class="price">$25,000</div>
-<button>Request Purchase</button>
+</div>
+
+<div class="card">
+<div class="item">SCAR</div>
+<div class="price">$21,000</div>
+</div>
+
+<div class="card">
+<div class="item">HK</div>
+<div class="price">$36,000</div>
+</div>
+
+<div class="card">
+<div class="item">Kar-98k</div>
+<div class="price">$20,000</div>
+</div>
+
+<div class="card">
+<div class="item">Markov PM</div>
+<div class="price">$10,000</div>
+</div>
+
+<div class="card">
+<div class="item">P250</div>
+<div class="price">$12,000</div>
+</div>
+
+<div class="card">
+<div class="item">Remington Shotgun</div>
+<div class="price">$25,000</div>
 </div>
 
 </div>
 
-<h3 style="margin-top:50px;">Ammunition</h3>
+</section>
+
+
+<section>
+
+<h2>Ammunition</h2>
 
 <div class="grid">
 
 <div class="card">
-<h3>Rifle Ammo</h3>
-<div class="stock">Stock: 100</div>
+<div class="item">Rifle Ammo</div>
 <div class="price">$15,000</div>
-<button>Request Purchase</button>
 </div>
 
 <div class="card">
-<h3>Pistol Ammo</h3>
-<div class="stock">Stock: 150</div>
-<div class="price">$7,000</div>
-<button>Request Purchase</button>
-</div>
-
-<div class="card">
-<h3>Shotgun Ammo</h3>
-<div class="stock">Stock: 90</div>
+<div class="item">Shotgun Ammo</div>
 <div class="price">$10,000</div>
-<button>Request Purchase</button>
+</div>
+
+<div class="card">
+<div class="item">Pistol Ammo</div>
+<div class="price">$7,000</div>
 </div>
 
 </div>
 
 </section>
 
-<section id="materials">
-
-<h2>Materials We Buy</h2>
-
-<div class="material-board">
-
-<ul>
-<li>Gold — $500</li>
-<li>Iron — $500</li>
-<li>Bronze — $400</li>
-<li>Natural Rubber — $400</li>
-<li>Fabric — $300</li>
-<li>Leather — $250</li>
-</ul>
-
-<p style="color:#888;">Bring materials to Spark Services for quick payment.</p>
-
-</div>
-
-</section>
-
-<section id="order">
-
-<h2>Submit Order Request</h2>
-
-<div class="order">
-
-<input type="text" placeholder="Name / Gang">
-
-<select>
-<option>AK-47</option>
-<option>M4A4</option>
-<option>Desert Eagle</option>
-<option>SCAR-17</option>
-<option>KAR-98k</option>
-<option>P250</option>
-<option>Makarov PM</option>
-<option>Remington 870</option>
-</select>
-
-<input type="number" placeholder="Quantity">
-
-<input type="text" placeholder="Contact Details">
-
-<button>Submit Order</button>
-
-</div>
-
-</section>
 
 <footer>
 
-Spark Services ©
-Contact Nick In-Game for Orders
+Spark Services © 2026
 
 </footer>
 
