@@ -1,145 +1,41 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <title>Spark Inc Marketplace</title>
-
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#000;
-color:#eee;
-}
-
-header{
-text-align:center;
-padding:20px;
-border-bottom:2px solid gold;
-}
-
-.logo{
-width:600px;
-max-width:90%;
-}
-
-.container{
-width:1100px;
-max-width:95%;
-margin:auto;
-padding:30px;
-}
-
-h2{
-color:gold;
-border-bottom:1px solid #222;
-padding-bottom:10px;
-margin-top:40px;
-}
-
-h3{
-color:gold;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-margin-top:20px;
-}
-
-.card{
-background:#111;
-padding:20px;
-border-radius:6px;
-text-align:center;
-border:1px solid #222;
-transition:0.2s;
-}
-
-.card:hover{
-border:1px solid gold;
-transform:scale(1.03);
-}
-
-.price{
-color:gold;
-font-weight:bold;
-font-size:18px;
-}
-
-button{
-background:gold;
-border:none;
-padding:8px 14px;
-border-radius:4px;
-cursor:pointer;
-margin-top:10px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-background:#111;
-margin-top:20px;
-}
-
-th,td{
-padding:12px;
-border-bottom:1px solid #222;
-}
-
+body{margin:0;font-family:Arial;background:#000;color:#eee;}
+header{text-align:center;padding:20px;border-bottom:2px solid gold;}
+.logo{width:600px;max-width:90%;}
+.container{width:1100px;max-width:95%;margin:auto;padding:30px;}
+h2{color:gold;border-bottom:1px solid #222;padding-bottom:10px;margin-top:40px;}
+h3{color:gold;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:20px;}
+.card{background:#111;padding:20px;border-radius:6px;text-align:center;border:1px solid #222;transition:0.2s;}
+.card:hover{border:1px solid gold;transform:scale(1.03);}
+.price{color:gold;font-weight:bold;font-size:18px;}
+button{background:gold;border:none;padding:8px 14px;border-radius:4px;cursor:pointer;margin-top:10px;}
+table{width:100%;border-collapse:collapse;background:#111;margin-top:20px;}
+th,td{padding:12px;border-bottom:1px solid #222;}
 .buy{color:#00ff9c;font-weight:bold;}
 .low{color:#ffd000;font-weight:bold;}
 .no{color:#ff4d4d;font-weight:bold;}
-
-.totalBox{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#111;
-border:1px solid gold;
-padding:15px;
-border-radius:6px;
-}
-
-/* DISCORD BUTTON */
-
-.discordTab{
-position:fixed;
-top:20px;
-right:20px;
-display:flex;
-align-items:center;
-gap:10px;
-background:#111;
-border:1px solid gold;
-padding:10px 14px;
-border-radius:8px;
-z-index:1000;
-transition:0.2s;
-}
-
-.discordTab:hover{
-transform:scale(1.05);
-border-color:#ffd000;
-}
-
-.discordTab img{
-width:180px;
-cursor:pointer;
-}
-
-.discordText{
-color:gold;
-font-weight:bold;
-font-size:16px;
-white-space:nowrap;
-}
-
+.totalBox{position:fixed;bottom:20px;right:20px;background:#111;border:1px solid gold;padding:15px;border-radius:6px;cursor:pointer;z-index:1000;transition:0.2s;}
+.totalBox:hover{transform:scale(1.05);border-color:#ffd000;}
+.discordTab{position:fixed;top:20px;right:20px;display:flex;align-items:center;gap:10px;background:#111;border:1px solid gold;padding:10px 14px;border-radius:8px;z-index:1000;transition:0.2s;}
+.discordTab:hover{transform:scale(1.05);border-color:#ffd000;}
+.discordTab img{width:180px;cursor:pointer;}
+.discordText{color:gold;font-weight:bold;font-size:16px;white-space:nowrap;}
+#cartPopup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#111;border:2px solid gold;border-radius:8px;padding:20px;width:400px;max-width:90%;z-index:2000;}
+#cartPopup h3{margin-top:0;color:gold;text-align:center;border-bottom:1px solid #222;padding-bottom:10px;}
+#cartPopup ul{list-style:none;padding:0;max-height:300px;overflow-y:auto;margin-bottom:10px;}
+#cartPopup li{padding:6px 0;border-bottom:1px solid #222;display:flex;justify-content:space-between;}
+#cartPopup .footerButtons{display:flex;justify-content:space-between;margin-top:10px;}
+#cartPopup button.closeCart{background:#ff4d4d;color:#000;border:none;padding:6px 10px;border-radius:4px;cursor:pointer;}
+#phonePopup{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111;border:2px solid gold;border-radius:8px;padding:20px;width:300px;max-width:90%;text-align:center;}
+#phonePopup input{width:80%;padding:6px;margin-bottom:10px;border-radius:4px;border:1px solid #222;}
+#phonePopup button{padding:6px 12px;border-radius:4px;border:none;background:gold;cursor:pointer;font-weight:bold;}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -171,138 +67,215 @@ white-space:nowrap;
 
 </div>
 
-<div class="totalBox">
-Total: $<span id="total">0</span>
+<div class="totalBox" id="viewCartBtn">View Cart: $<span id="total">0</span></div>
+
+<div id="cartPopup">
+  <h3>Your Cart</h3>
+  <ul id="cartList"></ul>
+  <p style="text-align:right;font-weight:bold;">Total: $<span id="cartTotal">0</span></p>
+  <div class="footerButtons">
+    <button class="closeCart" id="closeCartBtn">Close</button>
+    <button id="checkoutBtn">Checkout / Enter Phone</button>
+  </div>
+</div>
+
+<div id="phonePopup">
+  <h3>Enter Your In-Game Phone</h3>
+  <input type="text" id="phoneInput" placeholder="e.g. 123-4567">
+  <br>
+  <button id="submitPhoneBtn">Submit</button>
 </div>
 
 <a href="https://discord.gg/4Rwxh5gy" target="_blank">
 <div class="discordTab">
-<img src="images/spark-logo.png" alt="Join our Discord">
+<img src="images/spark-logo.png">
 <div class="discordText">Take me to the server</div>
 </div>
 </a>
 
 <script>
+let total=0;
+let cartItems=[];
 
-let total=0
-
-function addPrice(price){
-price = price.replace(/,/g,"")
-total += Number(price)
-document.getElementById("total").innerText = total.toLocaleString()
+function addPrice(price,name){
+    price = price.toString().replace(/,/g,"");
+    total += Number(price);
+    cartItems.push({name:name, price:Number(price)});
+    updateTotal();
 }
+
+function updateTotal(){
+    document.getElementById("total").innerText = total.toLocaleString();
+    document.getElementById("cartTotal").innerText = total.toLocaleString();
+}
+
+document.getElementById("viewCartBtn").addEventListener("click",()=>{
+    let list = document.getElementById("cartList");
+    list.innerHTML="";
+    cartItems.forEach(item=>{
+        let li = document.createElement("li");
+        li.innerHTML = `<span>${item.name}</span><span>$${item.price.toLocaleString()}</span>`;
+        list.appendChild(li);
+    });
+    document.getElementById("cartPopup").style.display="block";
+});
+
+document.getElementById("closeCartBtn").addEventListener("click",()=>{
+    document.getElementById("cartPopup").style.display="none";
+});
+
+document.getElementById("checkoutBtn").addEventListener("click", ()=> {
+    document.getElementById("cartPopup").style.display="none";
+    document.getElementById("phonePopup").style.display="block";
+});
+
+document.getElementById("submitPhoneBtn").addEventListener("click", async ()=>{
+    let phone = document.getElementById("phoneInput").value.trim();
+    if(phone === ""){
+        alert("Please enter your in-game phone number!");
+        return;
+    }
+
+    try {
+        await fetch("http://localhost:3000/sendDiscord", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ phone: phone, cart: cartItems })
+        });
+        alert("Order sent to Discord!");
+        document.getElementById("phonePopup").style.display="none";
+        cartItems = [];
+        total = 0;
+        updateTotal();
+    } catch(err) {
+        alert("Failed to send order. Check server.");
+        console.error(err);
+    }
+});
 
 fetch("prices.json")
 .then(response=>response.json())
 .then(data=>{
+    /* MATERIALS */
+    let materialsTable=document.getElementById("materialsTable");
+    data.materials.forEach(item=>{
+        if(["Coal","Scrap Plastic","Wood"].includes(item.name)) return;
+        let row=document.createElement("tr");
+        let statusClass="no";
+        if(item.status==="BUYING") statusClass="buy";
+        if(item.status==="LOW DEMAND") statusClass="low";
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td class="${statusClass}">${item.status}</td>
+            <td>$${item.price}</td>
+        `;
+        materialsTable.appendChild(row);
+    });
 
-/* MATERIALS */
-let materialsTable=document.getElementById("materialsTable")
+    /* WEAPONS */
+    let weaponGrid=document.getElementById("weaponGrid")
+    for (let category in data.weapons){
+        let section=document.createElement("div")
+        let heading=document.createElement("h3")
+        heading.innerText=category
+        section.appendChild(heading)
+        let grid=document.createElement("div")
+        grid.className="grid"
+        data.weapons[category].forEach(item=>{
+            let card=document.createElement("div");
+            card.className="card";
+            let nameEl = document.createElement("h4");
+            nameEl.innerText = item.name;
+            card.appendChild(nameEl);
+            let statusEl = document.createElement("p");
+            statusEl.className = item.status === "OUT OF STOCK" ? "no" : "buy";
+            statusEl.innerText = item.status || "In Stock";
+            card.appendChild(statusEl);
+            let priceEl = document.createElement("p");
+            priceEl.className = "price";
+            priceEl.innerText = "$" + item.price;
+            card.appendChild(priceEl);
+            let btn = document.createElement("button");
+            btn.innerText = "Add";
+            if(item.status==="OUT OF STOCK") btn.disabled = true;
+            btn.addEventListener("click",()=> addPrice(item.price,item.name));
+            card.appendChild(btn);
+            grid.appendChild(card);
+        })
+        section.appendChild(grid)
+        weaponGrid.appendChild(section)
+    }
 
-data.materials.forEach(item=>{
-let row=document.createElement("tr")
+    /* AMMO */
+    let ammoGrid=document.getElementById("ammoGrid")
+    data.ammo.forEach(item=>{
+        let card=document.createElement("div");
+        card.className="card";
+        let nameEl = document.createElement("h3");
+        nameEl.innerText = item.name;
+        card.appendChild(nameEl);
+        let statusEl = document.createElement("p");
+        statusEl.className = item.status==="OUT OF STOCK"?"no":"buy";
+        statusEl.innerText = item.status || "In Stock";
+        card.appendChild(statusEl);
+        let priceEl = document.createElement("p");
+        priceEl.className="price";
+        priceEl.innerText = "$" + item.price;
+        card.appendChild(priceEl);
+        let btn = document.createElement("button");
+        btn.innerText = "Add";
+        if(item.status==="OUT OF STOCK") btn.disabled = true;
+        btn.addEventListener("click",()=> addPrice(item.price,item.name));
+        card.appendChild(btn);
+        ammoGrid.appendChild(card);
+    });
 
-let statusClass="no"
-if(item.status==="BUYING") statusClass="buy"
-if(item.status==="LOW DEMAND") statusClass="low"
+    /* UTILITY */
+    let utilityGrid=document.getElementById("utilityGrid")
+    data.utility.forEach(item=>{
+        let card=document.createElement("div");
+        card.className="card";
+        let nameEl = document.createElement("h3");
+        nameEl.innerText = item.name;
+        card.appendChild(nameEl);
+        let statusEl = document.createElement("p");
+        statusEl.className = item.status==="OUT OF STOCK"?"no":"buy";
+        statusEl.innerText = item.status || "In Stock";
+        card.appendChild(statusEl);
+        let priceEl = document.createElement("p");
+        priceEl.className="price";
+        priceEl.innerText="$" + item.price;
+        card.appendChild(priceEl);
+        let btn = document.createElement("button");
+        btn.innerText="Add";
+        if(item.status==="OUT OF STOCK") btn.disabled = true;
+        btn.addEventListener("click",()=> addPrice(item.price,item.name));
+        card.appendChild(btn);
+        utilityGrid.appendChild(card);
+    });
 
-row.innerHTML=`
-<td>${item.name}</td>
-<td class="${statusClass}">${item.status}</td>
-<td>$${item.price}</td>
-`
-
-materialsTable.appendChild(row)
+    /* PACKAGES */
+    let packageGrid=document.getElementById("packageGrid")
+    data.packages.forEach(item=>{
+        let card=document.createElement("div");
+        card.className="card";
+        let nameEl=document.createElement("h3");
+        nameEl.innerText=item.name;
+        card.appendChild(nameEl);
+        let contentsEl=document.createElement("p");
+        contentsEl.innerText=item.contents;
+        card.appendChild(contentsEl);
+        let priceEl=document.createElement("p");
+        priceEl.className="price";
+        priceEl.innerText="$" + item.price;
+        card.appendChild(priceEl);
+        let btn=document.createElement("button");
+        btn.innerText="Add";
+        btn.addEventListener("click",()=> addPrice(item.price,item.name));
+        card.appendChild(btn);
+        packageGrid.appendChild(card);
+    })
 })
-
-/* WEAPONS */
-let weaponGrid=document.getElementById("weaponGrid")
-
-for (let category in data.weapons){
-
-let section=document.createElement("div")
-
-let heading=document.createElement("h3")
-heading.innerText=category
-section.appendChild(heading)
-
-let grid=document.createElement("div")
-grid.className="grid"
-
-data.weapons[category].forEach(item=>{
-
-let card=document.createElement("div")
-card.className="card"
-
-card.innerHTML=`
-<h4>${item.name}</h4>
-<p class="price">$${item.price}</p>
-<button onclick="addPrice('${item.price}')">Add</button>
-`
-
-grid.appendChild(card)
-})
-
-section.appendChild(grid)
-weaponGrid.appendChild(section)
-
-}
-
-/* AMMO */
-let ammoGrid=document.getElementById("ammoGrid")
-
-data.ammo.forEach(item=>{
-let card=document.createElement("div")
-
-card.className="card"
-
-card.innerHTML=`
-<h3>${item.name}</h3>
-<p class="price">$${item.price}</p>
-<button onclick="addPrice('${item.price}')">Add</button>
-`
-
-ammoGrid.appendChild(card)
-})
-
-/* UTILITY */
-let utilityGrid=document.getElementById("utilityGrid")
-
-data.utility.forEach(item=>{
-let card=document.createElement("div")
-
-card.className="card"
-
-card.innerHTML=`
-<h3>${item.name}</h3>
-<p class="price">$${item.price}</p>
-<button onclick="addPrice('${item.price}')">Add</button>
-`
-
-utilityGrid.appendChild(card)
-})
-
-/* PACKAGES */
-let packageGrid=document.getElementById("packageGrid")
-
-data.packages.forEach(item=>{
-
-let card=document.createElement("div")
-card.className="card"
-
-card.innerHTML=`
-<h3>${item.name}</h3>
-<p>${item.contents}</p>
-<p class="price">$${item.price}</p>
-<button onclick="addPrice('${item.price}')">Add</button>
-`
-
-packageGrid.appendChild(card)
-
-})
-
-})
-
 </script>
 
 </body>
