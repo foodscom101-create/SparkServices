@@ -7,6 +7,7 @@
  "materials":[
   {"name":"Gold","price":"500","status":"BUYING"},
   {"name":"Iron","price":"500","status":"BUYING"},
+  
   {"name":"Bronze","price":"400","status":"BUYING"},
   {"name":"Coal","price":"N/A","status":"NOT IN DEMAND"},
   {"name":"Natural Rubber","price":"400","status":"BUYING"},
@@ -61,7 +62,7 @@
   {
    "name":"Elite Arsenal",
    "contents":"3x M4, 1x Shotgun, 12x Rifle Ammo",
-   "price":"400,000"
+   "price":"450,000"
   }
  ]
 }
