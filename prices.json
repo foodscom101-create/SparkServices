@@ -5,15 +5,15 @@
  ],
 
  "materials":[
-  {"name":"Gold","price":"500","status":"BUYING"},
+  {"name":"Gold","price":"550","status":"BUYING"},
   {"name":"Iron","price":"500","status":"BUYING"},
   
-  {"name":"Bronze","price":"400","status":"BUYING"},
+  {"name":"Bronze","price":"450","status":"BUYING"},
   {"name":"Coal","price":"N/A","status":"NOT IN DEMAND"},
-  {"name":"Natural Rubber","price":"400","status":"BUYING"},
+  {"name":"Natural Rubber","price":"300","status":"BUYING"},
   {"name":"Scrap Plastic","price":"N/A","status":"NOT IN DEMAND"},
   {"name":"Fabric","price":"300","status":"BUYING"},
-  {"name":"Leather","price":"250","status":"BUYING"},
+  {"name":"Leather","price":"150","status":"BUYING"},
   {"name":"Wood","price":"N/A","status":"NOT IN DEMAND"}
  ],
 
@@ -62,7 +62,7 @@
   {
    "name":"Elite Arsenal",
    "contents":"3x M4, 1x Shotgun, 12x Rifle Ammo",
-   "price":"450,000"
+   "price":"300,000"
   }
  ]
 }
