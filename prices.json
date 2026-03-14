@@ -1,0 +1,67 @@
+{
+ "featured":[
+  {"name":"Glock Bundle","price":"20,000"},
+  {"name":"AK Starter Pack","price":"35,000"}
+ ],
+
+ "materials":[
+  {"name":"Gold","price":"500","status":"BUYING"},
+  {"name":"Iron","price":"500","status":"BUYING"},
+  {"name":"Bronze","price":"400","status":"BUYING"},
+  {"name":"Coal","price":"N/A","status":"NOT IN DEMAND"},
+  {"name":"Natural Rubber","price":"400","status":"BUYING"},
+  {"name":"Scrap Plastic","price":"N/A","status":"NOT IN DEMAND"},
+  {"name":"Fabric","price":"300","status":"BUYING"},
+  {"name":"Leather","price":"250","status":"BUYING"},
+  {"name":"Wood","price":"N/A","status":"NOT IN DEMAND"}
+ ],
+
+ "weapons":{
+  "Pistols":[
+    {"name":"Glock","price":"16,000"},
+    {"name":"Desert Eagle","price":"12,000"},
+    {"name":"P250","price":"12,000"}
+  ],
+
+  "Rifles":[
+    {"name":"M4","price":"31,000"},
+    {"name":"AK-47","price":"25,000"},
+    {"name":"SCAR","price":"21,000"},
+    {"name":"HK","price":"36,000"}
+  ],
+
+  "Snipers / Shotguns":[
+    {"name":"Remington","price":"25,000"},
+    {"name":"Kar-98k","price":"20,000"}
+  ]
+ },
+
+ "ammo":[
+  {"name":"Pistol Ammo","price":"7,000"},
+  {"name":"Shotgun Ammo","price":"10,000"},
+  {"name":"Rifle Ammo","price":"15,000"}
+ ],
+
+ "packages":[
+  {
+   "name":"Assault Bundle",
+   "contents":"1x M4, 2x Rifle Ammo",
+   "price":"50,000"
+  },
+  {
+   "name":"Full Squad Loadout",
+   "contents":"2x AK-47, 2x SCAR, 8x Rifle Ammo",
+   "price":"150,000"
+  },
+  {
+   "name":"Heavy Firepower Kit",
+   "contents":"1x Shotgun, 4x Rifle Ammo, 2x Shotgun Ammo",
+   "price":"220,000"
+  },
+  {
+   "name":"Elite Arsenal",
+   "contents":"3x M4, 1x Shotgun, 12x Rifle Ammo",
+   "price":"300,000"
+  }
+ ]
+}
