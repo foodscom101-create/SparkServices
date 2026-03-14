@@ -2,11 +2,9 @@
 <html>
 
 <head>
-
 <title>Spark Inc Marketplace</title>
 
 <style>
-
 body{
 margin:0;
 font-family:Arial;
@@ -105,22 +103,52 @@ padding:15px;
 border-radius:6px;
 }
 
-</style>
+/* DISCORD BUTTON */
 
+.discordTab{
+position:fixed;
+top:20px;
+right:20px;
+display:flex;
+align-items:center;
+gap:10px;
+background:#111;
+border:1px solid gold;
+padding:10px 14px;
+border-radius:8px;
+z-index:1000;
+transition:0.2s;
+}
+
+.discordTab:hover{
+transform:scale(1.05);
+border-color:#ffd000;
+}
+
+.discordTab img{
+width:180px;
+cursor:pointer;
+}
+
+.discordText{
+color:gold;
+font-weight:bold;
+font-size:16px;
+white-space:nowrap;
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-
 <img src="images/spark-logo.png" class="logo" alt="Spark Inc logo">
-
 </header>
 
 <div class="container">
 
 <h2>Material Buying Board</h2>
-
 <table id="materialsTable">
 <tr>
 <th>Material</th>
@@ -135,6 +163,9 @@ border-radius:6px;
 <h2>Ammunition</h2>
 <div id="ammoGrid" class="grid"></div>
 
+<h2>Utility</h2>
+<div id="utilityGrid" class="grid"></div>
+
 <h2>Custom Packages</h2>
 <div id="packageGrid" class="grid"></div>
 
@@ -144,53 +175,47 @@ border-radius:6px;
 Total: $<span id="total">0</span>
 </div>
 
+<a href="https://discord.gg/4Rwxh5gy" target="_blank">
+<div class="discordTab">
+<img src="images/spark-logo.png" alt="Join our Discord">
+<div class="discordText">Take me to the server</div>
+</div>
+</a>
+
 <script>
 
 let total=0
 
 function addPrice(price){
-
 price = price.replace(/,/g,"")
-
 total += Number(price)
-
 document.getElementById("total").innerText = total.toLocaleString()
-
 }
 
 fetch("prices.json")
-
 .then(response=>response.json())
-
 .then(data=>{
 
 /* MATERIALS */
-
 let materialsTable=document.getElementById("materialsTable")
 
 data.materials.forEach(item=>{
-
 let row=document.createElement("tr")
 
 let statusClass="no"
-
 if(item.status==="BUYING") statusClass="buy"
 if(item.status==="LOW DEMAND") statusClass="low"
 
 row.innerHTML=`
-
 <td>${item.name}</td>
 <td class="${statusClass}">${item.status}</td>
 <td>$${item.price}</td>
-
 `
 
 materialsTable.appendChild(row)
-
 })
 
 /* WEAPONS */
-
 let weaponGrid=document.getElementById("weaponGrid")
 
 for (let category in data.weapons){
@@ -198,9 +223,7 @@ for (let category in data.weapons){
 let section=document.createElement("div")
 
 let heading=document.createElement("h3")
-
 heading.innerText=category
-
 section.appendChild(heading)
 
 let grid=document.createElement("div")
@@ -212,62 +235,66 @@ let card=document.createElement("div")
 card.className="card"
 
 card.innerHTML=`
-
 <h4>${item.name}</h4>
 <p class="price">$${item.price}</p>
 <button onclick="addPrice('${item.price}')">Add</button>
-
 `
 
 grid.appendChild(card)
-
 })
 
 section.appendChild(grid)
-
 weaponGrid.appendChild(section)
 
 }
 
 /* AMMO */
-
 let ammoGrid=document.getElementById("ammoGrid")
 
 data.ammo.forEach(item=>{
-
 let card=document.createElement("div")
 
 card.className="card"
 
 card.innerHTML=`
-
 <h3>${item.name}</h3>
 <p class="price">$${item.price}</p>
 <button onclick="addPrice('${item.price}')">Add</button>
-
 `
 
 ammoGrid.appendChild(card)
+})
 
+/* UTILITY */
+let utilityGrid=document.getElementById("utilityGrid")
+
+data.utility.forEach(item=>{
+let card=document.createElement("div")
+
+card.className="card"
+
+card.innerHTML=`
+<h3>${item.name}</h3>
+<p class="price">$${item.price}</p>
+<button onclick="addPrice('${item.price}')">Add</button>
+`
+
+utilityGrid.appendChild(card)
 })
 
 /* PACKAGES */
-
 let packageGrid=document.getElementById("packageGrid")
 
 data.packages.forEach(item=>{
 
 let card=document.createElement("div")
-
 card.className="card"
 
 card.innerHTML=`
-
 <h3>${item.name}</h3>
 <p>${item.contents}</p>
 <p class="price">$${item.price}</p>
 <button onclick="addPrice('${item.price}')">Add</button>
-
 `
 
 packageGrid.appendChild(card)
@@ -275,7 +302,6 @@ packageGrid.appendChild(card)
 })
 
 })
-
 
 </script>
 
